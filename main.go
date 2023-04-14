@@ -66,7 +66,8 @@ func (o *Output) FromBalance(b *Balance) {
 // String converts output into human readable format
 func (o *Output) String() string {
 	hr := float64(o.Amount) * math.Pow10(-8)
-	return fmt.Sprintf("%d%% => %s : %.8f ACME", o.Share/100, o.URL, hr)
+	share := float64(o.Share) / 100
+	return fmt.Sprintf("%.2f%% => %s : %.8f ACME", share, o.URL, hr)
 }
 
 func main() {
